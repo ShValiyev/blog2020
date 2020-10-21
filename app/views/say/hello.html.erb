@@ -1,6 +1,7 @@
-<h1>Здарова</h1>
-<p>Добро поржаловать!</p>
+<p id="notice"><%= notice %></p>
+
+<h1>Привет!</h1>
+<p>Добро пожаловать!</p>
 <%= @time %>
-<!-- <a href="/say/goodbye">Выход</a> -->
-<%= link_to 'Выход', say_goodbye_path %>
-<%= link_to 'Список статей', articles_path %>
+<%= link_to 'Уйти', say_goodbye_path  %>
+<%= link_to 'Список статей', articles_path  %>

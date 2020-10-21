@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :check_admin
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
@@ -70,5 +71,11 @@ class UsersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def user_params
       params.require(:user).permit(:email, :password, :name, :admin)
+    end
+
+    def check_admin
+      unless @current_user && @current_user.admin
+        redirect_to root_path, notice: 'Доступ запрещён'
+      end
     end
 end

@@ -10,9 +10,14 @@
   </head>
 
   <body>
-    <%= session.to_h.inspect %>
-    <%= cookies.to_h.inspect %>
-    <%= link_to 'Выход', destroy_session_path %>
+    <div>
+    <% if session[:user_id] %>
+      <%= "Здравствуйте, #{@current_user.name}!" %>
+      <%= link_to 'Выйти', destroy_session_path %>
+    <% else %>
+      <%= link_to 'Войти', login_path %>
+    <% end %>
+    </div>
     <%= yield %>
   </body>
 </html>

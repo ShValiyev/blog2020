@@ -7,7 +7,7 @@
 
 <p>
   <strong>Author:</strong>
-  <%= @article.author %>
+  <%= @article.user&.name %>
 </p>
 
 <p>
@@ -17,3 +17,8 @@
 
 <%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Back', articles_path %>
+
+<p>
+  Последнее изменение
+  <%=l @article.updated_at %>
+</p>
